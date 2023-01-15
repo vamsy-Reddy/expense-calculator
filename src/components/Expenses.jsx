@@ -1,5 +1,6 @@
 import Card from "./Card";
 import ExpenseItem from "./ExpenseItem";
+import React from "react";
 
 const Expenses = (props) => {
   return (
