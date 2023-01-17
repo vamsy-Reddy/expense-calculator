@@ -1,9 +1,14 @@
+import moment from "moment"
 import React from "react"
 
 const ExpenseDate = (props)=> {
-  const month = props.date.toLocaleString('en-US', { month: 'long' });
-  const day = props.date.toLocaleString('en-US', { day: '2-digit' });
-  const year = props.date.toLocaleString('en-US',{year:"numeric"});
+  // const month = props.date.toLocaleString('en-US', { month: 'long' });
+  // const day = props.date.toLocaleString('en-US', { day: '2-digit' });
+  // const year = props.date.toLocaleString('en-US',{year:"numeric"});
+
+  const month = moment (props.date).format('MMMM')
+  const day = moment(props.date).format('DD')
+  const year = moment(props.date).format('YYYY')
 
     return(
         <div className="expense-date">
