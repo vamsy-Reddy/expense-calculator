@@ -4,17 +4,26 @@ import React, { useState } from "react";
 import ExpenseFilter from "./ExpenseFilter";
 
 const Expenses = (props) => {
+  const [filterYear, setFilterYear] = useState("2023");
 
-  const [filterYear, setFilterYear] = useState('2023')
-
-const expenseFilterHandler = (selectedYear) => {
-  setFilterYear(selectedYear)
-}
+  const expenseFilterHandler = (selectedYear) => {
+    setFilterYear(selectedYear);
+  };
 
   return (
     <Card className="expenses">
-      <ExpenseFilter  selected = {filterYear}  onChangeFilter = {expenseFilterHandler} />
-      <ExpenseItem
+      <ExpenseFilter
+        selected={filterYear}
+        onChangeFilter={expenseFilterHandler}
+      />
+      {props.items.map((expense) => (
+        <ExpenseItem
+          title={expense.title}
+          amount={expense.amount}
+          date={expense.date}
+        />
+      ))}
+      {/* <ExpenseItem
         title={props.items[0].title}
         amount={props.items[0].amount}
         date={props.items[0].date}
@@ -33,7 +42,10 @@ const expenseFilterHandler = (selectedYear) => {
         title={props.items[3].title}
         amount={props.items[3].amount}
         date={props.items[3].date}
-      />
+      /> */}
+
+{/* earlier hard coded data beofore mapping is above */}
+
     </Card>
   );
 };

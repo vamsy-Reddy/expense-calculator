@@ -1,9 +1,9 @@
 import React from "react"
 
 const ExpenseDate = (props)=> {
-    const month = props.date.toLocaleString('en-us',  {month: "long"})
-    const year = props.date.toLocaleString('en-us',{year:"numeric"})
-    const day = props.date.toLocaleString("en-us",{day:"numeric"})
+  const month = props.date.toLocaleString('en-US', { month: 'long' });
+  const day = props.date.toLocaleString('en-US', { day: '2-digit' });
+  const year = props.date.getFullYear();
 
     return(
         <div className="expense-date">
